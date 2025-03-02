@@ -14,6 +14,7 @@ export default defineType({
       name: 'subtitle',
       title: 'Subtitle',
       type: 'string',
+      rows: 2
     }),    
     defineField({
       name: 'slug',
