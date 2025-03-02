@@ -1,5 +1,4 @@
 import {defineField, defineType} from 'sanity'
-import CharacterCount from './CharacterCount';
 
 
 export default defineType({
@@ -32,13 +31,7 @@ export default defineType({
       title: 'Excerpt',
       type: 'text',
       validation: (Rule) => Rule.max(250).warning('Excerpts should be under 250 characters'),
-      components: {
-        input: CharacterCount,
-      },
-      options: {
-        maxChars: 250, // Ensures the counter uses the correct limit
-        rows: 2, // Sets the textarea to display 2 rows
-      }
+      rows: 2
     }),
     defineField({
       name: 'mainImage',
@@ -53,37 +46,19 @@ export default defineType({
       title: 'Main Image Alt Text',
       type: 'string',
       validation: (Rule) => Rule.max(100).warning('Alt text should be under 100 characters'),
-      components: {
-        input: CharacterCount,
-      },
-      options: {
-        maxChars: 100,
-      }
     }),    
     defineField({
       name: 'metaTitle',
       title: 'Meta Title',
       type: 'string',
       validation: (Rule) => Rule.max(60).warning('Meta titles should be under 60 characters'),
-      components: {
-        input: CharacterCount,
-      },
-      options: {
-        maxChars: 60,
-      }
     }),    
     defineField({
       name: 'metaDescription',
       title: 'Meta Description',
       type: 'text',
       validation: (Rule) => Rule.max(150).warning('Meta descriptions should be under 150 characters'),
-      components: {
-        input: CharacterCount,
-      },
-      options: {
-        maxChars: 150, // Ensures the counter uses the correct limit
-        rows: 2, // Sets the textarea to display 2 rows
-      }
+      rows: 2
     }),       
     defineField({
       name: 'categories',
