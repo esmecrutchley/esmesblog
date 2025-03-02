@@ -21,6 +21,7 @@ export default defineType({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
+      description: 'The slug should be under 96 characters',
       options: {
         source: 'title',
         maxLength: 96,
@@ -30,6 +31,7 @@ export default defineType({
       name: 'excerpt',
       title: 'Excerpt',
       type: 'text',
+      description: 'The excerpt should be under 250 characters',
       validation: (Rule) => Rule.max(250).warning('Excerpts should be under 250 characters'),
       rows: 2
     }),
@@ -37,6 +39,7 @@ export default defineType({
       name: 'mainImage',
       title: 'Main image',
       type: 'image',
+      description: 'Blog Post Featured Image',
       options: {
         hotspot: true,
       },
@@ -45,18 +48,21 @@ export default defineType({
       name: 'mainImageAlt',
       title: 'Main Image Alt Text',
       type: 'string',
+      description: 'Alt text should be under 100 characters',
       validation: (Rule) => Rule.max(100).warning('Alt text should be under 100 characters'),
     }),    
     defineField({
       name: 'metaTitle',
       title: 'Meta Title',
       type: 'string',
+      description: 'The Meta Title should be under 60 characters',
       validation: (Rule) => Rule.max(60).warning('Meta titles should be under 60 characters'),
     }),    
     defineField({
       name: 'metaDescription',
       title: 'Meta Description',
       type: 'text',
+      description: 'The Meta Description should be under 150 characters',
       validation: (Rule) => Rule.max(150).warning('Meta descriptions should be under 150 characters'),
       rows: 2
     }),       
