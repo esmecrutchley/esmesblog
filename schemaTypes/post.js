@@ -30,6 +30,7 @@ export default defineType({
       title: 'Excerpt',
       type: 'text',
       validation: (Rule) => Rule.max(250).warning('Excerpts should be under 250 characters'),
+      rows: 2
     }),    
     defineField({
       name: 'mainImage',
