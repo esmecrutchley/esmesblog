@@ -1,5 +1,5 @@
 import {defineField, defineType} from 'sanity'
-import CharacterCount from './CharacterCount'
+import CharacterCount from './CharacterCount';
 
 
 export default defineType({
