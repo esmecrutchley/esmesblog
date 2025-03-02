@@ -26,12 +26,11 @@ export default defineType({
       }
     }),
     defineField({
-        name: 'excerpt',
-        title: 'Excerpt',
-        type: 'text',
-        description: 'A short summary of the post',
-        rows: 3
-    }),
+      name: 'excerpt',
+      title: 'Excerpt',
+      type: 'text',
+      validation: (Rule) => Rule.max(250).warning('Excerpts should be under 250 characters'),
+    }),    
     defineField({
       name: 'mainImage',
       title: 'Main image',
@@ -40,6 +39,28 @@ export default defineType({
         hotspot: true,
       },
     }),
+    defineField({
+      name: 'mainImageAlt',
+      title: 'Main Image Alt Text',
+      type: 'string',
+      description: 'Describe the main image for accessibility (max 100 characters).',
+      validation: (Rule) => Rule.max(100).warning('Alt text should be concise (max 100 characters).')
+    }),
+    defineField({
+      name: 'metaTitle',
+      title: 'Meta Title',
+      type: 'string',
+      description: 'Optimized title for SEO (max 60 characters).',
+      validation: (Rule) => Rule.max(60).warning('Meta title should be 60 characters or less.')
+    }),
+    defineField({
+      name: 'metaDescription',
+      title: 'Meta Description',
+      type: 'text',
+      rows: 3,
+      description: 'Short summary for SEO (max 150 characters).',
+      validation: (Rule) => Rule.max(150).warning('Meta description should be 150 characters or less.')
+    }),    
     defineField({
       name: 'categories',
       title: 'Categories',
