@@ -1,4 +1,6 @@
 import {defineField, defineType} from 'sanity'
+import CharacterCount from '../components/CharacterCount'
+
 
 export default defineType({
   name: 'post',
@@ -30,8 +32,14 @@ export default defineType({
       title: 'Excerpt',
       type: 'text',
       validation: (Rule) => Rule.max(250).warning('Excerpts should be under 250 characters'),
-      rows: 3
-    }),    
+      components: {
+        input: CharacterCount,
+      },
+      options: {
+        maxChars: 250, // Ensures the counter uses the correct limit
+        rows: 2, // Sets the textarea to display 2 rows
+      }
+    }),
     defineField({
       name: 'mainImage',
       title: 'Main image',
@@ -44,24 +52,39 @@ export default defineType({
       name: 'mainImageAlt',
       title: 'Main Image Alt Text',
       type: 'string',
-      description: 'Describe the main image for accessibility (max 100 characters).',
-      validation: (Rule) => Rule.max(100).warning('Alt text should be concise (max 100 characters).')
-    }),
+      validation: (Rule) => Rule.max(100).warning('Alt text should be under 100 characters'),
+      components: {
+        input: CharacterCount,
+      },
+      options: {
+        maxChars: 100,
+      }
+    }),    
     defineField({
       name: 'metaTitle',
       title: 'Meta Title',
       type: 'string',
-      description: 'Optimized title for SEO (max 60 characters).',
-      validation: (Rule) => Rule.max(60).warning('Meta title should be 60 characters or less.')
-    }),
+      validation: (Rule) => Rule.max(60).warning('Meta titles should be under 60 characters'),
+      components: {
+        input: CharacterCount,
+      },
+      options: {
+        maxChars: 60,
+      }
+    }),    
     defineField({
       name: 'metaDescription',
       title: 'Meta Description',
       type: 'text',
-      rows: 3,
-      description: 'Short summary for SEO (max 150 characters).',
-      validation: (Rule) => Rule.max(150).warning('Meta description should be 150 characters or less.')
-    }),    
+      validation: (Rule) => Rule.max(150).warning('Meta descriptions should be under 150 characters'),
+      components: {
+        input: CharacterCount,
+      },
+      options: {
+        maxChars: 150, // Ensures the counter uses the correct limit
+        rows: 2, // Sets the textarea to display 2 rows
+      }
+    }),       
     defineField({
       name: 'categories',
       title: 'Categories',
