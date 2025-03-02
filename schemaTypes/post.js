@@ -17,7 +17,14 @@ export default defineType({
       options: {
         source: 'title',
         maxLength: 96,
-      },
+      }
+    }),
+    defineField({
+        name: 'excerpt',
+        title: 'Excerpt',
+        type: 'text',
+        description: 'A short summary of the post',
+        rows: 3
     }),
     defineField({
       name: 'author',
