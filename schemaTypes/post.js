@@ -13,7 +13,7 @@ export default defineType({
     defineField({
       name: 'subtitle',
       title: 'Subtitle',
-      type: 'string',
+      type: 'text',
       rows: 2
     }),    
     defineField({
